@@ -1,0 +1,11 @@
+Functions
+
+1.	All the following buttons should be activated only after a language is selected.
+2.	Each word must be written in a button. The button must be drag and droppable.
+3.	‘check the correctness of sentence’ button is activated is visible only after all words are used.
+4.	'The reform sentence' button for resetting. It should be activated only after the fist word of the answer is selected.
+5.	Whenever the button ‘check the correctness of sentence’ is pressed, the Get Correct sentence button is invoked only if the answer is wrong. 
+6.	The 'Get Correct Sentence' button, displays the right sentence and becomes 'Hide the Correct Sentence' button, clicking which hides the correct sentence and converts to 'Get the correct answer' button and vis versa. 
+7.	The English and Hindi Sentences are randomly chosen from a list of sentences. Every time English or Hindi is chosen, a new random English/Hindi Sentence comes into play. 
+
+
