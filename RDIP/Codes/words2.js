@@ -1,3 +1,20 @@
+function start(){
+	var lc=document.getElementById("lang").value;
+		if(lc=="select language"){
+			alert("select language");
+			return false;
+			}
+		else{
+			document.getElementById("test").innerHTML="Form a sentence (Declarrative or Interrogative or any other type) from the given words"+"<br>"+"(select the buttons in proper order)";
+			return true;
+			}
+	}
+//var lc=document.getElementById("lang").value;
+
+//document.getElementById("test").innerHTML= lc;
+
+//document.getElementById("test").innerhtml="hello";
+
 var comb1=["John", "ate", "an", "apple", "before", "afternoon"];
 var comb2=["before", "afternoon", "John", "ate", "an", "apple"];
 var comb3=["John", "before", "afternoon", "ate", "an", "apple"];
@@ -86,7 +103,7 @@ var comb3=["राम","सोया", "खाकर"];
 var comb4=["खाकर", "सोया","राम"];
 var comb5=["सोया", "राम","खाकर"];
 var comb6=["सोया","खाकर", "राम"];
-	var set4={comb1, comb2, comb3,comb4,comb5, comb6}
+	var set4={comb1, comb2, comb3,comb4,comb5, comb6};
 
 var comb1=["बिल्लियों", "को", "मारकर", "कुत्ता", "सो", "गया"];
 var comb2=["मारकर", "बिल्लियों", "को", "कुत्ता", "सो", "गया"];
@@ -114,9 +131,10 @@ var comb7=["है", "वहाँ", "एक", "बड़ी", "सी", "कित
 var comb8=["है", "वहाँ", "बड़ी", "सी", "एक", "किताब"];
 	var set7={comb1, comb2, comb3,comb4,comb5, comb6, comb7,comb8};
 
-		var hin={set1,set2,set3,set4,set5,set6,set7}
+		var hin={set1,set2,set3,set4,set5,set6,set7};
 
-document.getElementById("test").innerHTML= hin.set2.comb1;
+//document.getElementById("test").innerHTML= hin.set2.comb1;
+
 
 
 
