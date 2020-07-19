@@ -123,9 +123,9 @@ function srand(a){
 	}
 
 function randomize(a){
-	//document.getElementById("test1").innerHTML=a+"<br>"+a.length;
+	
 	var b=[];
-	//document.getElementById("test2").innerHTML="<"+b[1]+">";
+	
 	for(let i=a.length-1; i>=0;i--){
 		var c=Math.floor(a.length*Math.random());
 			if(b[c]==null){
@@ -135,8 +135,43 @@ function randomize(a){
 				i++;
 				}
 		}
-	document.getElementById("test4").innerHTML=b;
+	
+	return b;
 	}
+
+function takein1(event) {
+	var parentNode = document.getElementById("test");
+		
+		document.getElementById("test1.1").innerHTML ="Formed Sentence (after selecting words):<br>";
+		document.getElementById("test2").innerHTML =document.getElementById("test2").innerHTML + ' ' + event.target.innerHTML;
+	
+	
+		var parentNode = document.getElementById("test3");
+		var rst = document.createElement("BUTTON");
+		rst.innerText = "Re-Form the sentence";
+		parentNode.appendChild(rst);
+		rst.setAttribute("type", 'button');
+		btn.addEventListener("click", reset);
+		
+		
+	parentNode.removeChild(event.target);	
+	
+	}
+
+
+function conbutton(d) {
+	var parentNode = document.getElementById("test");
+	parentNode.innerHTML = '';
+	for (let i = 0; i < d.length; i++) {
+		var btn = document.createElement("BUTTON");
+		btn.innerText = d[i];
+		parentNode.appendChild(btn);
+		btn.setAttribute("type", 'button');
+		btn.addEventListener("click", takein1);
+		btn.setAttribute("type", 'button');
+	}
+}
+
 
 
 function start(){
@@ -147,20 +182,21 @@ function start(){
 			}
 		else{
 			if(lc=="english"){
-				document.getElementById("test").innerHTML="Form a sentence (Declarrative or Interrogative or any other type) from the given words"+"<br>"+"(select the buttons in proper order)";
-				var d=srand(eng);
-				//document.getElementById("test1").innerHTML=d;
-				randomize(d);
+				document.getElementById("test1").innerHTML="Form a sentence (Declarrative or Interrogative or any other type) from the given words"+"<br>"+"(select the buttons in proper order)"+"<br>";
+				var d=randomize(srand(eng));
+							
+				conbutton(d);
 				return true;
 				}
 			else{
-				document.getElementById("test").innerHTML="Form a sentence (Declarrative or Interrogative or any other type) from the given words"+"<br>"+"(select the buttons in proper order)";
-				randomize(srand(hin));
+				document.getElementById("test1").innerHTML="Form a sentence (Declarrative or Interrogative or any other type) from the given words"+"<br>"+"(select the buttons in proper order)"+"<br>";
+				var d=randomize(srand(hin));
+				
+				conbutton(d);		
 				return true;
 				}
 			}
 	}
-
 
 
 
