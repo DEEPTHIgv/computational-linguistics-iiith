@@ -116,8 +116,12 @@ var comb8=["है", "वहाँ", "बड़ी", "सी", "एक", "कित
 
 		var hin=[set1,set2,set3,set4,set5,set6,set7];
 
+var selset;
 function srand(a){
 	var k=Math.floor(a.length*Math.random());
+	
+	selset=a[k];
+
 	var l=a[k][1];
 	return l;
 	}
@@ -160,17 +164,14 @@ function takein1(event) {
 	var check3=document.getElementById("test1.1").innerHTML;
 	
 	if(check3!="" && check2==""){
-		var str=document.getElementById("test2").innerHTML;
-		var checkar=str.split(" ",selsen.length);
-		//document.getElementById("test5").innerHTML=checkar;
+		
 		
 
 		var parentNode = document.getElementById("test4");
 		var chbn = document.createElement("BUTTON");
 		chbn.innerText = "Check the correctness of this sentence";
 		parentNode.appendChild(chbn);
-		rst.setAttribute("type", 'button');
-		rst.addEventListener("click", checkin);
+		chbn.addEventListener("click", checkin);
 		
 		
 		
@@ -194,6 +195,7 @@ function conbutton(d) {
 }
 
 var selsen="";
+var setno="";
 
 function start(){
 	var lc=document.getElementById("lang").value;
@@ -204,14 +206,16 @@ function start(){
 		else{
 			if(lc=="english"){
 				document.getElementById("test1").innerHTML="Form a sentence (Declarrative or Interrogative or any other type) from the given words"+"<br>"+"(select the buttons in proper order)"+"<br>";
-				var d=randomize(srand(eng));
+				setno=srand(eng);
+				var d=randomize(setno);
 				selsen=d;			
 				conbutton(d);
 				return true;
 				}
 			else{
 				document.getElementById("test1").innerHTML="Form a sentence (Declarrative or Interrogative or any other type) from the given words"+"<br>"+"(select the buttons in proper order)"+"<br>";
-				var d=randomize(srand(hin));
+				setno=srand(hin);
+				var d=randomize(setno);
 				selsen=d;
 				conbutton(d);		
 				return true;
@@ -225,13 +229,30 @@ function resetin(){
 	document.getElementById("test2").innerHTML ="";
 	document.getElementById("test3").innerHTML="";
 	document.getElementById("test4").innerHTML="";
+	document.getElementById("test5").innerHTML="";
 	}
 
 function checkin(){
-	alert("hello");
-	//var str=document.getElementById("test2").innerHTML;
-	//var checkar=str.split();
-	//document.getElementById("test5").innerHTML=checkar;
+	var str=document.getElementById("test2").innerHTML;
+		var checkar=str.split(" ",selsen.length);
+	
+	for(let i=0; i<selset.length; i++){
+		var correct=0;
+		for(let j=0; j<checkar.length; j++){
+			if(selset[i][j]==checkar[j]){
+				correct++;
+				}			
+			}
+		if(correct==checkar.length){
+			document.getElementById("test5").innerHTML="Right answer!!!";
+			break;
+			}
+		else{
+			document.getElementById("test5").innerHTML="Wrong answer!!!";
+			}
+		}
+	
+	
 	}
 
 
