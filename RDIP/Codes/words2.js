@@ -141,20 +141,21 @@ function randomize(a){
 
 function takein1(event) {
 	var parentNode = document.getElementById("test");
-		
+	parentNode.removeChild(event.target);		
 		document.getElementById("test1.1").innerHTML ="Formed Sentence (after selecting words):<br>";
 		document.getElementById("test2").innerHTML =document.getElementById("test2").innerHTML + ' ' + event.target.innerHTML;
 	
-	
-		var parentNode = document.getElementById("test3");
+	var check=document.getElementById("test3").innerHTML;
+         if(check==""){
+                                	var parentNode = document.getElementById("test3");
 		var rst = document.createElement("BUTTON");
 		rst.innerText = "Re-Form the sentence";
 		parentNode.appendChild(rst);
 		rst.setAttribute("type", 'button');
-		btn.addEventListener("click", reset);
+		rst.addEventListener("click", resetin);
+		}
 		
-		
-	parentNode.removeChild(event.target);	
+	
 	
 	}
 
@@ -172,7 +173,7 @@ function conbutton(d) {
 	}
 }
 
-
+var selsen="";
 
 function start(){
 	var lc=document.getElementById("lang").value;
@@ -184,21 +185,26 @@ function start(){
 			if(lc=="english"){
 				document.getElementById("test1").innerHTML="Form a sentence (Declarrative or Interrogative or any other type) from the given words"+"<br>"+"(select the buttons in proper order)"+"<br>";
 				var d=randomize(srand(eng));
-							
+				selsen=d;			
 				conbutton(d);
 				return true;
 				}
 			else{
 				document.getElementById("test1").innerHTML="Form a sentence (Declarrative or Interrogative or any other type) from the given words"+"<br>"+"(select the buttons in proper order)"+"<br>";
 				var d=randomize(srand(hin));
-				
+				selsen=d;
 				conbutton(d);		
 				return true;
 				}
 			}
 	}
 
-
+function resetin(){
+	conbutton(selsen);
+	document.getElementById("test1.1").innerHTML ="";
+	document.getElementById("test2").innerHTML ="";
+	document.getElementById("test3").innerHTML="";
+	}
 
 
 
