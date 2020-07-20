@@ -140,13 +140,14 @@ function randomize(a){
 	}
 
 function takein1(event) {
+	var x=event.target.innerHTML;
 	var parentNode = document.getElementById("test");
 	parentNode.removeChild(event.target);		
 		document.getElementById("test1.1").innerHTML ="Formed Sentence (after selecting words):<br>";
-		document.getElementById("test2").innerHTML =document.getElementById("test2").innerHTML + ' ' + event.target.innerHTML;
+		document.getElementById("test2").innerHTML =document.getElementById("test2").innerHTML + event.target.innerHTML+" ";
 	
 	var check=document.getElementById("test3").innerHTML;
-         if(check==""){
+	if(check==""){
                                 	var parentNode = document.getElementById("test3");
 		var rst = document.createElement("BUTTON");
 		rst.innerText = "Re-Form the sentence";
@@ -154,7 +155,26 @@ function takein1(event) {
 		rst.setAttribute("type", 'button');
 		rst.addEventListener("click", resetin);
 		}
+
+	var check2=document.getElementById("test").innerHTML;
+	var check3=document.getElementById("test1.1").innerHTML;
+	
+	if(check3!="" && check2==""){
+		var str=document.getElementById("test2").innerHTML;
+		var checkar=str.split(" ",selsen.length);
+		//document.getElementById("test5").innerHTML=checkar;
 		
+
+		var parentNode = document.getElementById("test4");
+		var chbn = document.createElement("BUTTON");
+		chbn.innerText = "Check the correctness of this sentence";
+		parentNode.appendChild(chbn);
+		rst.setAttribute("type", 'button');
+		rst.addEventListener("click", checkin);
+		
+		
+		
+		}
 	
 	
 	}
@@ -204,9 +224,15 @@ function resetin(){
 	document.getElementById("test1.1").innerHTML ="";
 	document.getElementById("test2").innerHTML ="";
 	document.getElementById("test3").innerHTML="";
+	document.getElementById("test4").innerHTML="";
 	}
 
-
+function checkin(){
+	alert("hello");
+	//var str=document.getElementById("test2").innerHTML;
+	//var checkar=str.split();
+	//document.getElementById("test5").innerHTML=checkar;
+	}
 
 
 
