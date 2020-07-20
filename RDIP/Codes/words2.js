@@ -248,14 +248,31 @@ function checkin(){
 			break;
 			}
 		else{
-			document.getElementById("test5").innerHTML="Wrong answer!!!";
+			document.getElementById("test5").innerHTML="Wrong answer!!!<br>";
+			
+			var parentNode = document.getElementById("test5");
+			var getright = document.createElement("BUTTON");
+			getright.innerText = "Get Correct Sentence";
+			parentNode.appendChild(getright);
+			getright.setAttribute("type", 'button');
+			getright.addEventListener("click", getrsen);
+			
 			}
 		}
-	
-	
 	}
 
-
+function getrsen(){
+	/*for(let i=0; i<selset.length; i++){
+		var parentNode = document.getElementById("test6");
+			var s[i] = document.createElement("p");
+			parentNode.appendChild(s[i]);
+			s[i].innerHTML+="<br>";
+		
+		for(let j=0; j<checkar.length; j++){
+			s[i].innerHTML+=" "+selset[i][j];
+			}
+		}*/
+	}
 
 
 
