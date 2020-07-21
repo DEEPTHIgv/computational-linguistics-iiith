@@ -230,52 +230,59 @@ function resetin(){
 	document.getElementById("test3").innerHTML="";
 	document.getElementById("test4").innerHTML="";
 	document.getElementById("test5").innerHTML="";
+	document.getElementById("test6").innerHTML+="";
 	}
 
+var getright;
+
 function checkin(){
-	var str=document.getElementById("test2").innerHTML;
-		var checkar=str.split(" ",selsen.length);
+	if(document.getElementById("test5").innerHTML==""){
+		var str=document.getElementById("test2").innerHTML;
+			var checkar=str.split(" ",selsen.length);
 	
-	for(let i=0; i<selset.length; i++){
-		var correct=0;
-		for(let j=0; j<checkar.length; j++){
-			if(selset[i][j]==checkar[j]){
-				correct++;
-				}			
-			}
-		if(correct==checkar.length){
-			document.getElementById("test5").innerHTML="Right answer!!!";
-			break;
-			}
-		else{
-			document.getElementById("test5").innerHTML="Wrong answer!!!<br>";
+		for(let i=0; i<selset.length; i++){
+			var correct=0;
+			for(let j=0; j<checkar.length; j++){
+				if(selset[i][j]==checkar[j]){
+					correct++;
+					}			
+				}
+			if(correct==checkar.length){
+				document.getElementById("test5").innerHTML="Right answer!!!";
+				break;
+				}
+			else{
+				document.getElementById("test5").innerHTML="Wrong answer!!!<br>";
 			
-			var parentNode = document.getElementById("test5");
-			var getright = document.createElement("BUTTON");
-			getright.innerText = "Get Correct Sentence";
-			parentNode.appendChild(getright);
-			getright.setAttribute("type", 'button');
-			getright.addEventListener("click", getrsen);
+				var parentNode = document.getElementById("test5");
+				getright = document.createElement("BUTTON");
+				getright.innerText = "Get Correct Sentence";
+				parentNode.appendChild(getright);
+				getright.setAttribute("type", 'button');
+				getright.addEventListener("click", getrsen);
 			
+				}
 			}
 		}
 	}
 
-function getrsen(){
-	/*for(let i=0; i<selset.length; i++){
-		var parentNode = document.getElementById("test6");
-			var s[i] = document.createElement("p");
-			parentNode.appendChild(s[i]);
-			s[i].innerHTML+="<br>";
-		
-		for(let j=0; j<checkar.length; j++){
-			s[i].innerHTML+=" "+selset[i][j];
-			}
-		}*/
+function hidersen(){
+	document.getElementById("test6").innerHTML="";
+	getright.innerText = "GET ANSWERS";
+	//getright.onclick=getrsen();
+	getright.removeEventListener("click", hidersen);
+	getright.addEventListener("click", getrsen);
 	}
 
-
-
-
+function getrsen(){
+	if(document.getElementById("test6").innerHTML==""){
+		for(let i=0; i<selset.length; i++){
+			document.getElementById("test6").innerHTML+="<br>"+selset[i].join(" ");
+			}
+		getright.innerText = "Hide the correct Sentence";
+		getright.removeEventListener("click", getrsen);
+		getright.addEventListener("click", hidersen);	
+		}
+	}
 
 
