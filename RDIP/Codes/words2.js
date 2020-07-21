@@ -205,7 +205,8 @@ function start(){
 			}
 		else{
 			if(lc=="english"){
-				document.getElementById("test1").innerHTML="Form a sentence (Declarrative or Interrogative or any other type) from the given words"+"<br>"+"(select the buttons in proper order)"+"<br>";
+				document.getElementById("test1").innerHTML="<b>Form a sentence (Declarrative or Interrogative or any other type) from the given words</b><br><i>(select the buttons in proper order)</i><br>";
+
 				setno=srand(eng);
 				var d=randomize(setno);
 				selsen=d;			
@@ -213,7 +214,8 @@ function start(){
 				return true;
 				}
 			else{
-				document.getElementById("test1").innerHTML="Form a sentence (Declarrative or Interrogative or any other type) from the given words"+"<br>"+"(select the buttons in proper order)"+"<br>";
+				document.getElementById("test1").innerHTML="<b>Form a sentence (Declarrative or Interrogative or any other type) from the given words</b><br><i>(select the buttons in proper order)</i><br>";
+			
 				setno=srand(hin);
 				var d=randomize(setno);
 				selsen=d;
